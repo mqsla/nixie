@@ -7,6 +7,7 @@
     ./modules/secure-boot.nix
     ./modules/gnome.nix
     ./modules/pipewire.nix
+    ./modules/peripherals.nix
     ./modules/obs.nix
     ./modules/users.nix
     ./modules/gaming.nix

@@ -7,7 +7,7 @@
   imports = [
     ./programs/zen-browser.nix
     ./programs/ghostty.nix
-    ./programs/discord.nix
+    ./programs/nixcord.nix
     ./programs/easyeffects.nix
     ./programs/git.nix
     ./programs/spicetify.nix
