@@ -1,0 +1,50 @@
+name: Nix Auto Format
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.nix"
+      - "flake.lock"
+      - ".github/workflows/nix-fmt.yml"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: nix-fmt
+  cancel-in-progress: false
+
+jobs:
+  format:
+    name: Format Nix Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Install Determinate Nix
+        uses: DeterminateSystems/determinate-nix-action@v3.24.1
+
+      - name: Format Nix Files
+        run: nix fmt --no-update-lock-file .
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ci/nix-auto-format
+          base: main
+          delete-branch: true
+          add-paths: |
+            :(glob)**/*.nix
+          commit-message: "style(nix): format with alejandra"
+          title: "style(nix): apply alejandra formatting"
+          body: |
+            Automated formatting with Alejandra.
+
+            Only Nix formatting changes are included.
