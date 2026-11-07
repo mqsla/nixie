@@ -62,6 +62,7 @@ in {
     enable = true;
     openFirewall = true;
     settings = {
+      GatewayPorts = "clientspecified";
       KbdInteractiveAuthentication = false;
       PasswordAuthentication = false;
       PermitRootLogin = "no";
