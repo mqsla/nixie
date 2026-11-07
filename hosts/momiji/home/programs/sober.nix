@@ -9,10 +9,10 @@
 
     if [ -f "$config" ]; then
       ${pkgs.gnused}/bin/sed '/^[[:space:]]*\/\//d' "$config" \
-        | ${pkgs.jq}/bin/jq '.enable_gamemode = true' > "$config.tmp" \
-        || printf '%s\n' '{"enable_gamemode":true}' > "$config.tmp"
+        | ${pkgs.jq}/bin/jq '.enable_gamemode = true | .allow_gamepad_permission = true' > "$config.tmp" \
+        || printf '%s\n' '{"enable_gamemode":true,"allow_gamepad_permission":true}' > "$config.tmp"
     else
-      printf '%s\n' '{"enable_gamemode":true}' > "$config.tmp"
+      printf '%s\n' '{"enable_gamemode":true,"allow_gamepad_permission":true}' > "$config.tmp"
     fi
 
     mv "$config.tmp" "$config"
