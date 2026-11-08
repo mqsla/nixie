@@ -6,6 +6,7 @@
     ./programs/ghostty.nix
     ./programs/git.nix
     ./programs/nixcord.nix
+    ./programs/easyeffects.nix
     ./programs/vscode.nix
     ./programs/libreoffice.nix
     ./programs/zen-browser.nix
