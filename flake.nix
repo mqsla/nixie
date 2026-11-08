@@ -138,10 +138,11 @@
             home-manager = {
               sharedModules = [
                 inputs.zen-browser.homeModules.beta
+                inputs.spicetify.homeManagerModules.spicetify
                 inputs.nixcord.homeModules.nixcord
               ];
               extraSpecialArgs = {
-                inherit (inputs) freesm;
+                inherit (inputs) freesm spicetify;
               };
             };
           }

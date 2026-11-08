@@ -1,13 +1,14 @@
 {pkgs, ...}: {
   imports = [
+    ./programs/easyeffects.nix
     ./programs/ghostty.nix
     ./programs/git.nix
-    ./programs/nixcord.nix
-    ./programs/easyeffects.nix
-    ./programs/vscode.nix
-    ./programs/minecraft.nix
-    ./programs/sober.nix
     ./programs/libreoffice.nix
+    ./programs/minecraft.nix
+    ./programs/nixcord.nix
+    ./programs/sober.nix
+    ./programs/spicetify.nix
+    ./programs/vscode.nix
     ./programs/zen-browser.nix
   ];
 
