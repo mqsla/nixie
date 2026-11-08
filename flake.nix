@@ -1,5 +1,5 @@
 {
-  description = "NixOS configurations for momiji, fuchsia, and pawass";
+  description = "NixOS configurations for momiji, fuchsia, pawass, and keyaki";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -59,6 +59,7 @@
       momiji = "x86_64-linux";
       fuchsia = "x86_64-linux";
       pawass = "x86_64-linux";
+      keyaki = "x86_64-linux";
     };
     supportedSystems = nixpkgs.lib.unique (builtins.attrValues hostSystems);
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -124,6 +125,21 @@
         system = hostSystems.pawass;
         specialArgs = {inherit inputs;};
         modules = [./hosts/pawass];
+      };
+
+      keyaki = mkNixosSystem {
+        system = hostSystems.keyaki;
+        specialArgs = {inherit inputs;};
+        modules = [
+          inputs.home-manager.nixosModules.home-manager
+          ./hosts/keyaki
+          {
+            home-manager.sharedModules = [
+              inputs.zen-browser.homeModules.beta
+              inputs.nixcord.homeModules.nixcord
+            ];
+          }
+        ];
       };
     };
 
