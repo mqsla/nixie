@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = [
-    (pkgs.callPackage ../packages/womic {})
+    pkgs.localPackages.clientside.womic
     pkgs.alsa-utils
   ];
 

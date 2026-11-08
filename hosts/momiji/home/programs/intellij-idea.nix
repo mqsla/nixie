@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  catppuccin = pkgs.callPackage ../../packages/catppuccin-jetbrains {};
+  catppuccin = pkgs.localPackages.clientside.catppuccin-jetbrains;
   minecraft-development = pkgs.fetchzip {
     url = "https://plugins.jetbrains.com/files/8327/1196534/Minecraft_Development-2026.2-1.9.0.zip";
     hash = "sha256-2Wq/lTnkoPIktUJlkGXcpAbWrsis7BML+swchGEAvaE=";
@@ -13,7 +13,7 @@
     catppuccin
     minecraft-development
   ];
-  defaults = pkgs.callPackage ../../packages/idea-settings {};
+  defaults = pkgs.localPackages.clientside.idea-settings;
   optionsDirectory = "${config.xdg.configHome}/JetBrains/IntelliJIdea${lib.versions.majorMinor idea.version}/options";
 in {
   home.packages = [idea];

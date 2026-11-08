@@ -70,10 +70,13 @@
         config.allowUnfree = true;
       };
     };
+    localPackagesOverlay = final: _prev: {
+      localPackages = import ./packages {pkgs = final;};
+    };
 
     commonModules = [
       inputs.disko.nixosModules.disko
-      {nixpkgs.overlays = [unstableOverlay];}
+      {nixpkgs.overlays = [unstableOverlay localPackagesOverlay];}
     ];
 
     mkNixosSystem = {

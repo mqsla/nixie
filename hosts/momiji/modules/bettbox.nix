@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  bettbox = pkgs.callPackage ../packages/bettbox {};
+  bettbox = pkgs.localPackages.clientside.bettbox;
 in {
   environment.systemPackages = [bettbox];
 

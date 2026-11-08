@@ -35,7 +35,7 @@
       ripgrep
       rustdesk-flutter
       scrcpy
-      (pkgs.callPackage ../packages/truckersmp-cli {})
+      pkgs.localPackages.clientside.truckersmp-cli
       agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
     file.".local/share/Steam/package/beta".text = "publicbeta";
