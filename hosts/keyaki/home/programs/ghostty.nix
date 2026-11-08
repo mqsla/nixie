@@ -1,4 +1,29 @@
 {
+  lib,
+  pkgs,
+  ...
+}: {
+  home.activation.ghosttyShortcut = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    ${lib.getExe' pkgs.kdePackages.kconfig "kwriteconfig6"} \
+      --file kglobalshortcutsrc \
+      --group services \
+      --group com.mitchellh.ghostty.desktop \
+      --key _launch \
+      "Shift+F10,none,Open Ghostty"
+
+    ${lib.getExe' pkgs.kdePackages.kconfig "kwriteconfig6"} \
+      --file kdeglobals \
+      --group General \
+      --key TerminalApplication \
+      ghostty
+
+    ${lib.getExe' pkgs.kdePackages.kconfig "kwriteconfig6"} \
+      --file kdeglobals \
+      --group General \
+      --key TerminalService \
+      com.mitchellh.ghostty.desktop
+  '';
+
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
