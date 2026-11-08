@@ -8,6 +8,7 @@
     ./programs/nixcord.nix
     ./programs/easyeffects.nix
     ./programs/vscode.nix
+    ./programs/minecraft.nix
     ./programs/libreoffice.nix
     ./programs/zen-browser.nix
   ];
