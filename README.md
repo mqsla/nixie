@@ -14,11 +14,12 @@
 
 | path | purpose |
 | --- | --- |
-| `flake.nix` | inputs and host definitions | 
+| `flake.nix` | inputs and host definitions |
 | `hosts/<hostname>/default.nix` | host entry point |
 | `hosts/<hostname>/hardware.nix` | hardware and filesystems |
 | `hosts/<hostname>/modules/` | system services and features |
-| `hosts/momiji/home/` | Home Manager configuration |
-| `hosts/momiji/packages/` | local packages |
+| `hosts/<hostname>/home/` | Home Manager configuration for desktop hosts |
+| `packages/clientside/` | shared desktop packages |
+| `packages/serverside/` | shared server packages |
 | `hosts/keys.nix` | public host keys |
 | `secrets.nix` | Agenix secret recipients |
