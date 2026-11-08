@@ -136,12 +136,12 @@
           ./hosts/keyaki
           {
             home-manager = {
-             sharedModules = [
-              inputs.zen-browser.homeModules.beta
-              inputs.nixcord.homeModules.nixcord
-            ];
-            extraSpecialArgs = {
-              inherit (inputs) freesm;
+              sharedModules = [
+                inputs.zen-browser.homeModules.beta
+                inputs.nixcord.homeModules.nixcord
+              ];
+              extraSpecialArgs = {
+                inherit (inputs) freesm;
               };
             };
           }
