@@ -35,6 +35,7 @@
       ripgrep
       rustdesk-flutter
       scrcpy
+      (pkgs.callPackage ../packages/truckersmp-cli {})
       agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
     file.".local/share/Steam/package/beta".text = "publicbeta";
@@ -69,7 +70,6 @@
       '';
       shellAliases = {
         deploy-fuchsia = "NH_SSHOPTS='-4 -F /dev/null -i /home/yanville/.ssh/id_ed25519_fuchsia -o IdentitiesOnly=yes' nh os switch path:/home/yanville/nixos --hostname fuchsia --target-host yanville@144.31.203.21 --elevation-strategy passwordless --ask";
-
         ls = "eza --icons=auto --group-directories-first";
         ll = "eza --icons=auto --group-directories-first -lah --git";
 
