@@ -11,6 +11,9 @@
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
+    package = pkgs.vscode.override {
+      commandLineArgs = "--ozone-platform=wayland";
+    };
     profiles.default = {
       userSettings = {
         "python.analysis.typeCheckingMode" = "basic";
