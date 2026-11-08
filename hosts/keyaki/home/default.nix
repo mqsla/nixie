@@ -9,6 +9,7 @@
     ./programs/easyeffects.nix
     ./programs/vscode.nix
     ./programs/minecraft.nix
+    ./programs/sober.nix
     ./programs/libreoffice.nix
     ./programs/zen-browser.nix
   ];

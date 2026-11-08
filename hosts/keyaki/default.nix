@@ -7,6 +7,7 @@
     ./modules/pipewire.nix
     ./modules/peripherals.nix
     ./modules/gaming.nix
+    ./modules/sober.nix
     ./modules/bettbox.nix
     ./modules/reverse-ssh.nix
   ];
