@@ -1,4 +1,13 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  vscode-wayland = pkgs.symlinkJoin {
+    name = "vscode-wayland";
+    paths = [pkgs.vscode];
+    nativeBuildInputs = [pkgs.makeWrapper];
+    postBuild = ''
+      wrapProgram $out/bin/code --add-flags "--ozone-platform=wayland"
+    '';
+  };
+in {
   home.packages = with pkgs; [
     python3
     nodejs_24
@@ -11,9 +20,7 @@
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
-    package = pkgs.vscode.override {
-      commandLineArgs = "--ozone-platform=wayland";
-    };
+    package = vscode-wayland;
     profiles.default = {
       userSettings = {
         "python.analysis.typeCheckingMode" = "basic";
