@@ -13,6 +13,7 @@
     ./programs/spicetify.nix
     ./programs/minecraft.nix
     ./programs/vscode.nix
+    # ./programs/zed-editor.nix
     ./programs/intellij-idea.nix
     ./programs/libreoffice.nix
     ./programs/thunderbird.nix
