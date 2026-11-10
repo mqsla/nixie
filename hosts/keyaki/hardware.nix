@@ -93,6 +93,15 @@
     ];
   };
 
+  fileSystems."/mnt/ssd" = {
+    device = "/dev/disk/by-uuid/a9c44d27-c1b4-4a4a-96e7-43106639ae01";
+    fsType = "btrfs";
+    options = [
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
   swapDevices = [];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
