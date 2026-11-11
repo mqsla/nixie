@@ -17,6 +17,6 @@ in {
     owner = "root";
     group = "bettbox";
     permissions = "u+rx,g+rx,o-rwx";
-    capabilities = "cap_net_admin,cap_net_bind_service,cap_net_raw+ep";
+    setuid = true;
   };
 }

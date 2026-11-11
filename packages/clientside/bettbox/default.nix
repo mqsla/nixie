@@ -21,6 +21,9 @@
     fi
     exec ${libcap}/bin/getcap "$@"
   '';
+  stat = writeShellScript "bettbox-stat" ''
+    exec ${coreutils}/bin/stat -L "$@"
+  '';
 in
   stdenv.mkDerivation {
     inherit pname version;
@@ -60,6 +63,7 @@ in
       mv "$out/share/Bettbox/BettboxCore" "$out/libexec/bettbox/BettboxCore"
       ln -s /run/wrappers/bin/BettboxCore "$out/share/Bettbox/BettboxCore"
       ln -s ${getcap} "$out/libexec/bettbox-tools/getcap"
+      ln -s ${stat} "$out/libexec/bettbox-tools/stat"
       makeWrapper "$out/share/Bettbox/Bettbox" "$out/bin/Bettbox" \
         --prefix PATH : "$out/libexec/bettbox-tools" \
         --prefix LD_LIBRARY_PATH : "$out/share/Bettbox/lib"
