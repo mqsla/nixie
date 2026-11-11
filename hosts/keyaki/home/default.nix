@@ -19,6 +19,7 @@
     packages = with pkgs; [
       ayugram-desktop
       eza
+      godot
       ouch
       ripgrep
       rustdesk-flutter

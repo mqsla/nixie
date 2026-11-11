@@ -37,6 +37,7 @@ in {
         ms-python.vscode-pylance
         ms-python.debugpy
         github.vscode-github-actions
+        geequlim.godot-tools
         mikestead.dotenv
         jnoortheen.nix-ide
         matthewpi.caddyfile-support
