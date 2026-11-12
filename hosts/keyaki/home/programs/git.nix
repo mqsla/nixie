@@ -5,7 +5,7 @@
 }: let
   email = "me@tvrz.dev";
   keys = import ../../../keys.nix;
-  publicKey = keys.fuchsia.trwz;
+  publicKey = keys.fuchsia.tvrz;
 in {
   home.file.".ssh/id_ed25519.pub".text = "${publicKey}\n";
 

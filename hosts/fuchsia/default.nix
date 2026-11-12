@@ -33,10 +33,11 @@ in {
     openssh.authorizedKeys.keys = [keys.fuchsia.yanville];
   };
 
-  users.users.trwz = {
+  users.users.tvrz = {
     isNormalUser = true;
+    extraGroups = ["wheel"];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [keys.fuchsia.trwz];
+    openssh.authorizedKeys.keys = [keys.fuchsia.tvrz];
   };
 
   programs.zsh = {
@@ -46,14 +47,14 @@ in {
       theme = "clean";
       plugins = ["git"];
       preLoaded = ''
-        [[ $USER == trwz ]] && ZSH_THEME="bira"
+        [[ $USER == tvrz ]] && ZSH_THEME="bira"
       '';
     };
   };
 
   systemd.tmpfiles.rules = [
     "f /home/yanville/.zshrc 0644 yanville users - -"
-    "f /home/trwz/.zshrc 0644 trwz users - -"
+    "f /home/tvrz/.zshrc 0644 tvrz users - -"
   ];
 
   security.sudo.wheelNeedsPassword = false;

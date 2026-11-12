@@ -11,7 +11,7 @@ in {
         "wheel"
       ];
       openssh.authorizedKeys.keys = [
-        keys.fuchsia.trwz
+        keys.fuchsia.tvrz
         keys.momiji.yanville
       ];
     };

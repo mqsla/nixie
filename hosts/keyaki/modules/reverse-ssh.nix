@@ -15,7 +15,7 @@
           -o ServerAliveCountMax=3 \
           -o StrictHostKeyChecking=accept-new \
           -R 0.0.0.0:25566:127.0.0.1:22 \
-          trwz@144.31.203.21
+          tvrz@144.31.203.21
       '';
       Restart = "always";
       RestartSec = "5s";
