@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./programs/easyeffects.nix
-    ./programs/ghostty.nix
     ./programs/git.nix
     ./programs/libreoffice.nix
     ./programs/minecraft.nix
@@ -9,6 +8,7 @@
     ./programs/sober.nix
     ./programs/spicetify.nix
     ./programs/vscode.nix
+    ./programs/yakuake.nix
     ./programs/zen-browser.nix
   ];
 
