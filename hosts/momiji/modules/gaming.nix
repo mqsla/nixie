@@ -6,7 +6,7 @@
     };
     steam = {
       enable = true;
-      extraCompatPackages = [pkgs.unstable.proton-ge-bin];
+      extraCompatPackages = [pkgs.proton-ge-bin];
       package = pkgs.steam.override {
         extraLibraries = packages: [
           packages.gamemode.lib

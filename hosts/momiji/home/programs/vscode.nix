@@ -14,7 +14,7 @@
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
-    package = pkgs.unstable.vscode;
+    package = pkgs.vscode;
     profiles.default = {
       userSettings = {
         "python.analysis.typeCheckingMode" = "basic";

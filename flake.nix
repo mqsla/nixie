@@ -1,5 +1,5 @@
 {
-  description = "NixOS configurations for momiji, fuchsia, pawass, and keyaki";
+  description = "NixOS configurations for momiji, keyaki, fuchsia and pawass";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -61,9 +61,9 @@
   }: let
     hostSystems = {
       momiji = "x86_64-linux";
+      keyaki = "x86_64-linux";
       fuchsia = "x86_64-linux";
       pawass = "x86_64-linux";
-      keyaki = "x86_64-linux";
     };
     supportedSystems = nixpkgs.lib.unique (builtins.attrValues hostSystems);
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -96,10 +96,13 @@
   in {
     nixosConfigurations = {
       momiji = mkNixosSystem {
+        nixpkgsSource = nixpkgs-unstable;
         system = hostSystems.momiji;
-        specialArgs = {inherit inputs nixpkgs-unstable;};
+        specialArgs = {
+          inputs = inputs // {nixpkgs = nixpkgs-unstable;};
+        };
         modules = [
-          inputs.home-manager.nixosModules.home-manager
+          inputs.home-manager-unstable.nixosModules.home-manager
           inputs.nix-flatpak.nixosModules.nix-flatpak
           inputs.lanzaboote.nixosModules.lanzaboote
           ./hosts/momiji
@@ -116,23 +119,6 @@
             };
           }
         ];
-      };
-
-      fuchsia = mkNixosSystem {
-        system = hostSystems.fuchsia;
-        specialArgs = {inherit inputs;};
-        modules = [
-          inputs.agenix.nixosModules.default
-          inputs.calagopus.nixosModules.default
-          {nixpkgs.overlays = [inputs.calagopus.overlays.default];}
-          ./hosts/fuchsia
-        ];
-      };
-
-      pawass = mkNixosSystem {
-        system = hostSystems.pawass;
-        specialArgs = {inherit inputs;};
-        modules = [./hosts/pawass];
       };
 
       keyaki = mkNixosSystem {
@@ -158,6 +144,23 @@
             };
           }
         ];
+      };
+
+      fuchsia = mkNixosSystem {
+        system = hostSystems.fuchsia;
+        specialArgs = {inherit inputs;};
+        modules = [
+          inputs.agenix.nixosModules.default
+          inputs.calagopus.nixosModules.default
+          {nixpkgs.overlays = [inputs.calagopus.overlays.default];}
+          ./hosts/fuchsia
+        ];
+      };
+
+      pawass = mkNixosSystem {
+        system = hostSystems.pawass;
+        specialArgs = {inherit inputs;};
+        modules = [./hosts/pawass];
       };
     };
 
