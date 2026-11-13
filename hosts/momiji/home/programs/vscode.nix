@@ -3,6 +3,9 @@
     python3
     nodejs_24
     bun
+    rustc
+    cargo
+    go
     nixd
     alejandra
     caddy
@@ -27,6 +30,8 @@
         ms-python.python
         ms-python.vscode-pylance
         ms-python.debugpy
+        rust-lang.rust-analyzer
+        golang.go
         github.vscode-github-actions
         mikestead.dotenv
         jnoortheen.nix-ide
