@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   vscode-wayland = pkgs.symlinkJoin {
     name = "vscode-wayland";
-    paths = [pkgs.unstable.vscode];
+    paths = [pkgs.vscode];
     nativeBuildInputs = [pkgs.makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/code --add-flags "--ozone-platform=wayland"
