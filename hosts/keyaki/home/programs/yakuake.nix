@@ -9,8 +9,7 @@ in {
   home.packages = [yakuake];
 
   xdg = {
-    configFile."autostart/org.kde.yakuake.desktop".source =
-      "${yakuake}/share/applications/org.kde.yakuake.desktop";
+    configFile."autostart/org.kde.yakuake.desktop".source = "${yakuake}/share/applications/org.kde.yakuake.desktop";
 
     terminal-exec = {
       enable = true;
