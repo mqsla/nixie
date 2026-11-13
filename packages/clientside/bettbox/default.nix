@@ -17,9 +17,26 @@
   getcap = writeShellScript "bettbox-getcap" ''
     if [ "$#" -eq 1 ]; then
       target="$(${coreutils}/bin/readlink -f -- "$1")"
+      case "$target" in
+        /run/wrappers/*/BettboxCore)
+          printf '%s cap_net_admin,cap_net_bind_service,cap_net_raw=ep\n' "$1"
+          exit 0
+          ;;
+      esac
       exec ${libcap}/bin/getcap "$target"
     fi
     exec ${libcap}/bin/getcap "$@"
+  '';
+  setcap = writeShellScript "bettbox-setcap" ''
+    target=""
+    for argument in "$@"; do
+      target="$argument"
+    done
+    resolved="$(${coreutils}/bin/readlink -f -- "$target")"
+    case "$resolved" in
+      /run/wrappers/*/BettboxCore) exit 0 ;;
+    esac
+    exec ${libcap}/bin/setcap "$@"
   '';
   stat = writeShellScript "bettbox-stat" ''
     exec ${coreutils}/bin/stat -L "$@"
@@ -68,6 +85,7 @@ in
         --prefix PATH : "$out/libexec/bettbox-tools" \
         --prefix LD_LIBRARY_PATH : "$out/share/Bettbox/lib"
       rm -r "$out/share/polkit-1"
+      ln -s ${setcap} "$out/libexec/bettbox-tools/setcap"
 
       runHook postInstall
     '';
