@@ -104,11 +104,21 @@
       disable-user-extensions = false;
       enabled-extensions = with pkgs.gnomeExtensions; [
         appindicator.extensionUuid
-        clipboard-indicator.extensionUuid
-        desktop-icons-ng-ding.extensionUuid
+        blur-my-shell.extensionUuid
+        copyous.extensionUuid
         emoji-copy.extensionUuid
       ];
     };
+    "org/gnome/shell/extensions/copyous" = {
+      database-backend = "json";
+      disable-hljs-dialog = true;
+    };
+    "org/gnome/shell/extensions/copyous/code-item".syntax-highlighting = false;
+    "org/gnome/shell/extensions/copyous/file-item" = {
+      file-preview-visibility = "hidden";
+      syntax-highlighting = false;
+    };
+    "org/gnome/shell/extensions/copyous/link-item".show-link-preview = false;
     "org/gnome/desktop/interface" = {
       accent-color = "pink";
       color-scheme = "prefer-dark";
