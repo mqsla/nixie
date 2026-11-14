@@ -12,6 +12,9 @@ in {
     python3
     nodejs_24
     bun
+    rustc
+    cargo
+    go
     nixd
     alejandra
     caddy
@@ -36,8 +39,9 @@ in {
         ms-python.python
         ms-python.vscode-pylance
         ms-python.debugpy
+        rust-lang.rust-analyzer
+        golang.go
         github.vscode-github-actions
-        geequlim.godot-tools
         mikestead.dotenv
         jnoortheen.nix-ide
         matthewpi.caddyfile-support
