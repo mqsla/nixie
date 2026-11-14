@@ -44,7 +44,7 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
         home-manager.follows = "home-manager";
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
       };
     };
 
