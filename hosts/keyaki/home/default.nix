@@ -44,6 +44,7 @@
 
   programs = {
     home-manager.enable = true;
+    fastfetch.enable = true;
     zsh = {
       enable = true;
       package = null;

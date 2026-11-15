@@ -71,7 +71,6 @@
   environment.systemPackages = with pkgs; [
     btop
     eza
-    fastfetch
     git
     nano
     pciutils
