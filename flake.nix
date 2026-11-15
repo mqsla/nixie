@@ -6,10 +6,6 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/v0.8.0";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -30,7 +26,7 @@
 
     freesm = {
       url = "github:freesmteam/freesmlauncher";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nixcord = {
       url = "github:4evy/nixcord";
@@ -38,12 +34,12 @@
     };
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
-        home-manager.follows = "home-manager";
+        home-manager.follows = "home-manager-unstable";
         nixpkgs.follows = "nixpkgs-unstable";
       };
     };
