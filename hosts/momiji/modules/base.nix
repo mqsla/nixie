@@ -75,6 +75,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    eza
     git
     vim
     nano
@@ -84,5 +85,7 @@
     lm_sensors
     btop-cuda
     openssl
+    ouch
+    ripgrep
   ];
 }

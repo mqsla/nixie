@@ -70,6 +70,7 @@
 
   environment.systemPackages = with pkgs; [
     btop
+    eza
     fastfetch
     git
     nano
@@ -80,5 +81,7 @@
     util-linux
     vim
     openssl
+    ouch
+    ripgrep
   ];
 }

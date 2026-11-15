@@ -29,11 +29,8 @@
       ayugram-desktop
       codex
       ente-auth
-      eza
       keyguard
       mangohud
-      ouch
-      ripgrep
       rustdesk-flutter
       scrcpy
       pkgs.localPackages.clientside.truckersmp-cli
@@ -64,6 +61,7 @@
     fastfetch.enable = true;
     zsh = {
       enable = true;
+      package = null;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       initContent = ''

@@ -19,10 +19,7 @@
     packages = with pkgs; [
       ayugram-desktop
       codex
-      eza
       godot
-      ouch
-      ripgrep
       rustdesk-flutter
       scrcpy
     ];
@@ -47,9 +44,9 @@
 
   programs = {
     home-manager.enable = true;
-    fastfetch.enable = true;
     zsh = {
       enable = true;
+      package = null;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {

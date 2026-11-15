@@ -11,6 +11,7 @@ in {
 
   programs.git = {
     enable = true;
+    package = null;
     signing = {
       format = "ssh";
       key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
