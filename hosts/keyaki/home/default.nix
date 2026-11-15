@@ -18,6 +18,7 @@
     stateVersion = "26.05";
     packages = with pkgs; [
       ayugram-desktop
+      codex
       eza
       godot
       ouch
