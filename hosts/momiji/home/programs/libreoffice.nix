@@ -66,7 +66,7 @@
     // lib.genAttrs impress (_: ["libreoffice-impress.desktop"]);
 in {
   home.packages = with pkgs; [
-    libreoffice-fresh
+    libreoffice
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
