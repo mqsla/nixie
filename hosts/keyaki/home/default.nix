@@ -20,6 +20,7 @@
       ayugram-desktop
       codex
       godot
+      guake
       rustdesk-flutter
       scrcpy
     ];
