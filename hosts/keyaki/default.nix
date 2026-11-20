@@ -3,7 +3,6 @@
     ./hardware.nix
     ./modules/base.nix
     ./modules/users.nix
-    ./modules/plasma.nix
     ./modules/gnome.nix
     ./modules/kompas3d.nix
     ./modules/pipewire.nix

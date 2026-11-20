@@ -37,13 +37,5 @@
       ];
       xkb-options = ["grp:alt_shift_toggle"];
     };
-    "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
-      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/yakuake/"
-    ];
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/yakuake" = {
-      name = "Yakuake";
-      command = "${pkgs.glib}/bin/gdbus call --session --dest org.kde.yakuake --object-path /yakuake/window --method org.kde.yakuake.toggleWindowState";
-      binding = "F12";
-    };
   };
 }

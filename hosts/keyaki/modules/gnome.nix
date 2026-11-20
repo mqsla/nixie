@@ -46,7 +46,6 @@
   };
 
   environment = {
-    gnome.excludePackages = [pkgs.gnome-console];
     sessionVariables.NAUTILUS_4_EXTENSION_DIR = lib.mkForce "/run/current-system/sw/lib/nautilus/extensions-4";
   };
 
