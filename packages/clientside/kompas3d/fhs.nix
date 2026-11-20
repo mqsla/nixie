@@ -3,7 +3,6 @@
   bash,
   buildFHSEnv,
   kompas3d,
-  makeWrapper,
   open-sans,
   writeText,
 }: let
@@ -32,10 +31,13 @@ in
     ];
 
     extraInstallCommands = ''
-      ln -s "${kompas3d}/share" "$out/share"
-      ln -s "$out/bin/${pname}" "$out/bin/kompas3d"
-      ${makeWrapper}/bin/makeWrapper "$out/bin/${pname}" "$out/bin/kompas3d-activation" \
-        --add-flags "--activate"
+            ln -s "${kompas3d}/share" "$out/share"
+            ln -s "$out/bin/${pname}" "$out/bin/kompas3d"
+            cat > "$out/bin/kompas3d-activation" <<EOF
+      #!${bash}/bin/bash
+      exec "$out/bin/${pname}" --activate "\$@"
+      EOF
+            chmod +x "$out/bin/kompas3d-activation"
     '';
 
     meta =
