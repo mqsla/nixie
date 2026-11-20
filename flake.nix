@@ -105,6 +105,7 @@
         modules = [
           inputs.home-manager-unstable.nixosModules.home-manager
           inputs.nix-flatpak.nixosModules.nix-flatpak
+          inputs.bootvine.nixosModules.default
           inputs.lanzaboote.nixosModules.lanzaboote
           ./hosts/momiji
           {

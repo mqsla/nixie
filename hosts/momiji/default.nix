@@ -20,6 +20,7 @@
 
   networking.hostName = "momiji";
   system.stateVersion = "26.05";
+  services.bootvine.enable = true;
 
   home-manager = {
     useGlobalPkgs = true;
