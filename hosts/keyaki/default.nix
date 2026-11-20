@@ -16,6 +16,8 @@
 
   boot.loader.grub.enable = true;
 
+  services.bootvine.enable = true;
+
   networking.hostName = "keyaki";
   system.stateVersion = "26.05";
 

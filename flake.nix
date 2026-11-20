@@ -4,7 +4,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-keyguard.url = "github:NixOS/nixpkgs/4fe25e12eb9f4c744966dd3de5a05246cf098601";
     nix-flatpak.url = "github:gmodena/nix-flatpak/v0.8.0";
+    bootvine = {
+      url = "git+https://codeberg.org/wvhulle/bootvine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
@@ -111,6 +116,11 @@
               ];
               extraSpecialArgs = {
                 inherit (inputs) agenix freesm spicetify;
+                keyguard =
+                  (import inputs.nixpkgs-keyguard {
+                    system = hostSystems.momiji;
+                    config.allowUnfree = true;
+                  }).keyguard;
               };
             };
           }
@@ -126,6 +136,7 @@
         modules = [
           inputs.home-manager-unstable.nixosModules.home-manager
           inputs.nix-flatpak.nixosModules.nix-flatpak
+          inputs.bootvine.nixosModules.default
           ./hosts/keyaki
           {
             home-manager = {
