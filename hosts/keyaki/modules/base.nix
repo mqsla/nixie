@@ -1,5 +1,9 @@
 {pkgs, ...}: {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [];
+    problems.handlers."gtk+".broken = "ignore";
+  };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking = {
