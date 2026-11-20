@@ -5,9 +5,9 @@
     profiles.default = {
       isDefault = true;
       search = {
-        default = "google";
+        default = "duckduckgo";
         force = true;
-        privateDefault = "google";
+        privateDefault = "duckduckgo";
       };
       settings = {
         "browser.aboutConfig.showWarning" = false;
