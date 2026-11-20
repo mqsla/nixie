@@ -52,7 +52,7 @@
         toolbarDevMenu = false;
       };
       fakeNitro = {
-        enable = false;
+        enable = true;
         disableEmbedPermissionCheck = false;
         emojiSize = 48;
         enableEmojiBypass = false;
@@ -116,14 +116,14 @@
       quickMention.enable = true;
       revealAllSpoilers.enable = true;
       showHiddenChannels = {
-        enable = true;
+        enable = false;
         channelStyle = 0;
         defaultAllowedUsersAndRolesDropdownState = true;
         hideUnreads = true;
         showMode = 0;
       };
       silentTyping = {
-        enable = true;
+        enable = false;
         alwaysEnableInActiveVoiceChat = false;
         chatContextMenu = true;
         chatIcon = true;
@@ -171,10 +171,7 @@
     };
 
     discord = {
-      branches = [
-        "canary"
-        "stable"
-      ];
+      branches = ["canary"];
       commandLineArgs = ["--ozone-platform=x11"];
       equicord.enable = true;
       krisp.enable = false;
