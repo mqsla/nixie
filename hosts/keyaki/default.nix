@@ -4,6 +4,7 @@
     ./modules/base.nix
     ./modules/users.nix
     ./modules/plasma.nix
+    ./modules/gnome.nix
     ./modules/pipewire.nix
     ./modules/peripherals.nix
     ./modules/gaming.nix

@@ -9,6 +9,7 @@
     ./programs/spicetify.nix
     ./programs/vscode.nix
     ./programs/yakuake.nix
+    ./programs/gnome.nix
     ./programs/zen-browser.nix
   ];
 
