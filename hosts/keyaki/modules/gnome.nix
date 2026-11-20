@@ -39,10 +39,7 @@
   services = {
     desktopManager.gnome.enable = true;
     displayManager.defaultSession = "gnome";
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
+    displayManager.gdm.enable = true;
   };
 
   hardware.graphics = {
