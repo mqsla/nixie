@@ -9,6 +9,7 @@
     ./programs/spicetify.nix
     ./programs/vscode.nix
     ./programs/gnome.nix
+    ./programs/ghostty.nix
     ./programs/zen-browser.nix
   ];
 
@@ -20,7 +21,6 @@
       ayugram-desktop
       codex
       godot
-      guake
       rustdesk-flutter
       scrcpy
     ];
