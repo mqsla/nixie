@@ -15,6 +15,7 @@ in {
     rustc
     cargo
     go
+    gcc
     nixd
     alejandra
     caddy
