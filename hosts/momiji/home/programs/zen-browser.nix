@@ -10,9 +10,9 @@
     profiles.default = {
       isDefault = true;
       search = {
-        default = "google";
+        default = "ddg";
         force = true;
-        privateDefault = "google";
+        privateDefault = "ddg";
       };
       settings = {
         # --- 1. UI & QoL ---
@@ -67,6 +67,17 @@
     in {
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
+      DisableFirefoxAccounts = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+      NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";

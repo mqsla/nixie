@@ -5,40 +5,53 @@
     profiles.default = {
       isDefault = true;
       search = {
-        default = "duckduckgo";
+        default = "ddg";
         force = true;
-        privateDefault = "duckduckgo";
+        privateDefault = "ddg";
       };
       settings = {
-        "browser.aboutConfig.showWarning" = false;
-        "browser.aboutwelcome.enabled" = false;
-        "browser.contentblocking.category" = "custom";
-        "browser.toolbars.bookmarks.visibility" = "always";
-        "browser.translations.enable" = false;
-        "general.autoScroll" = true;
-        "middlemouse.paste" = false;
-        "media.hardware-video-decoding.enabled" = true;
-        "zen.view.sidebar-expanded" = false;
-        "zen.view.use-single-toolbar" = false;
-        "zen.welcome-screen.seen" = true;
-        "privacy.fingerprintingProtection" = true;
-        "privacy.fingerprintingProtection.pbmode" = true;
-        "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionFromThirdPartiesIsBlocked,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasRandomization,-EfficientCanvasRandomization";
-        "layout.css.prefers-color-scheme.content-override" = 2;
-        "privacy.trackingprotection.enabled" = true;
-        "privacy.trackingprotection.fingerprinting.enabled" = true;
-        "privacy.trackingprotection.cryptomining.enabled" = true;
-        "media.peerconnection.enabled" = true;
-        "media.peerconnection.ice.no_host" = true;
-        "media.peerconnection.ice.default_address_only" = true;
-        "datareporting.healthreport.uploadEnabled" = false;
-        "datareporting.policy.dataSubmissionEnabled" = false;
-        "toolkit.telemetry.enabled" = false;
-        "app.shield.optoutstudies.enabled" = false;
-        "geo.enabled" = false;
-        "permissions.default.geo" = 2;
-        "dom.security.https_only_mode" = true;
-        "network.dns.disablePrefetch" = true;
+        # --- 1. UI & QoL ---
+        "browser.aboutConfig.showWarning" = false; # Hide about:config warning
+        "browser.aboutwelcome.enabled" = false; # Skip Firefox onboarding
+        "browser.toolbars.bookmarks.visibility" = "always"; # Always show bookmarks bar
+        "browser.translations.enable" = false; # Disable built-in translations
+        "general.autoScroll" = true; # Enable middle-click scrolling
+        "middlemouse.paste" = false; # Disable middle-click paste
+
+        # --- 2. Hardware Acceleration ---
+        "media.hardware-video-decoding.enabled" = true; # Enable hardware video decoding
+
+        # --- 3. Zen Browser ---
+        "zen.view.sidebar-expanded" = false; # Start with collapsed sidebar
+        "zen.view.use-single-toolbar" = false; # Disable single-toolbar layout
+        "zen.welcome-screen.seen" = true; # Skip Zen welcome screen
+
+        # --- 4. Privacy & Fingerprinting ---
+        "browser.contentblocking.category" = "custom"; # Use custom tracking protection
+        "privacy.fingerprintingProtection" = true; # Enable fingerprinting protection
+        "privacy.fingerprintingProtection.pbmode" = true; # Protect private windows
+        "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionFromThirdPartiesIsBlocked,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasRandomization,-EfficientCanvasRandomization"; # Keep timezone spoofing, allow canvas access
+        "layout.css.prefers-color-scheme.content-override" = 2; # Follow system theme
+        "privacy.trackingprotection.enabled" = true; # Block known trackers
+        "privacy.trackingprotection.fingerprinting.enabled" = true; # Block fingerprinting scripts
+        "privacy.trackingprotection.cryptomining.enabled" = true; # Block cryptomining scripts
+
+        # --- 5. WebRTC ---
+        "media.peerconnection.enabled" = true; # Keep WebRTC available
+        "media.peerconnection.ice.no_host" = true; # Hide local ICE host addresses
+        "media.peerconnection.ice.default_address_only" = true; # Restrict ICE to default route
+
+        # --- 6. Telemetry & Security ---
+        "datareporting.healthreport.uploadEnabled" = false; # Disable health report uploads
+        "datareporting.policy.dataSubmissionEnabled" = false; # Disable data submissions
+        "toolkit.telemetry.enabled" = false; # Disable legacy telemetry
+        "app.shield.optoutstudies.enabled" = false; # Disable browser studies
+        "geo.enabled" = false; # Disable browser geolocation
+        "permissions.default.geo" = 2; # Block location permissions
+        "dom.security.https_only_mode" = true; # Prefer HTTPS connections
+
+        # --- 7. Network ---
+        "network.dns.disablePrefetch" = true; # Disable DNS prefetching
       };
     };
     policies = let
@@ -49,6 +62,17 @@
     in {
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
+      DisableFirefoxAccounts = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+      NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
