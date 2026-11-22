@@ -47,5 +47,6 @@
       ];
       xkb-options = ["grp:alt_shift_toggle"];
     };
+    "org/gnome/settings-daemon/plugins/media-keys".mic-mute = ["Pause"];
   };
 }
