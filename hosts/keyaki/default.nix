@@ -4,7 +4,6 @@
     ./modules/base.nix
     ./modules/users.nix
     ./modules/gnome.nix
-    ./modules/kompas3d.nix
     ./modules/pipewire.nix
     ./modules/peripherals.nix
     ./modules/gaming.nix
